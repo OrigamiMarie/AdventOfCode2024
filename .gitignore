@@ -2,6 +2,9 @@
 **/build/
 !src/**/build/
 
+# Input data owned by Advent of Code
+app/src/test/resources/*
+
 # IntelliJ files are just going to be confusion and noisy
 .idea
 
