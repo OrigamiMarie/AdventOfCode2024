@@ -1,11 +1,10 @@
 package net.origamimarie.adentofcode2024;
 
 import com.google.common.io.Resources;
+import org.apache.commons.io.IOUtils;
 
-import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -13,12 +12,9 @@ import java.util.List;
 public class Day02 {
 
     public static int countSafeReports(String fileName, boolean dampen) throws IOException {
-        URL fileUrl = Resources.getResource(fileName);
-        FileReader fileReader = new FileReader(fileUrl.getFile());
-        BufferedReader bufferedReader = new BufferedReader(fileReader);
+        List<String> lines = IOUtils.readLines(new FileReader(Resources.getResource(fileName).getFile()));
         int safeReportCount = 0;
-        while (bufferedReader.ready()) {
-            String report = bufferedReader.readLine();
+        for (String report : lines) {
             List<Integer> numbers = Arrays.stream(report.split(" ")).map(Integer::parseInt).toList();
             boolean safeReport = isReportSafe(numbers);
             if (dampen) {

@@ -1,21 +1,18 @@
 package net.origamimarie.adentofcode2024.util;
 
 import com.google.common.io.Resources;
+import org.apache.commons.io.IOUtils;
 
-import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.net.URL;
 import java.util.List;
 
 public class ListPairFileReader {
 
     public static void readListsFromResourceFile(String fileName, List<String> leftList, List<String> rightList) throws IOException {
-        URL fileUrl = Resources.getResource(fileName);
-        FileReader fileReader = new FileReader(fileUrl.getFile());
-        BufferedReader bufferedReader = new BufferedReader(fileReader);
-        while (bufferedReader.ready()) {
-            String line = bufferedReader.readLine();
+        List<String> lines = IOUtils.readLines(new FileReader(Resources.getResource(fileName).getFile()));
+        System.out.println(lines);
+        for (String line : lines) {
             while (line.contains("  ")) {
                 line = line.replaceAll("  ", " ");
             }
