@@ -26,6 +26,8 @@ dependencies {
     implementation group: 'commons-io', name: 'commons-io', version: '2.18.0'
     compileOnly 'org.projectlombok:lombok:1.18.36'
     annotationProcessor 'org.projectlombok:lombok:1.18.36'
+    // pretty console output
+    implementation group: 'com.googlecode.lanterna', name: 'lanterna', version: '3.1.2'
 
     testCompileOnly 'org.projectlombok:lombok:1.18.36'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.36'
